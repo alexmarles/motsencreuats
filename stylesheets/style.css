@@ -18,6 +18,7 @@ body {
 #header h1 {
   color: #557;
   font-size: 3.5em;
+  margin-top: 25px;
 }
 
 #header h2 {
@@ -29,6 +30,7 @@ body {
 #game-form {
   width: 468px;
   margin: 0 auto;
+  margin-top: 25px;
 }
 
 #box {
@@ -37,6 +39,7 @@ body {
   height: 486px;
   border: 1px solid;
   margin: 0 auto;
+  margin-top: 10px;
 }
 
 #box input {
@@ -51,4 +54,20 @@ body {
 
 #box input[disabled="disabled"] {
   background-color: #000;
+}
+
+#descriptions {
+  margin-top: 25px;
+}
+
+p {
+  margin-top: 10px;
+}
+
+.tit-des {
+  font-weight: bold;
+}
+
+.fail {
+  color: #f00;
 }

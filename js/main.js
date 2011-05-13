@@ -16,7 +16,7 @@ $(function(){
     var res = regex.exec(cas);
     var row = parseInt(res[1]);
     var col = parseInt(res[2]);
-    if (dir === "horitzontal")
+    if (dir === "horizontal")
       col += 1;
     else
       row += 1;
