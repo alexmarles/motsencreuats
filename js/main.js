@@ -24,18 +24,20 @@ $(function(){
   };
 
   $("input").keyup(function(e){
-                  var cont = $(this).val();
-                  if (cont !== "")
-                  {
-                    var id = $(this).attr("id");
-                    var dir = $('input[type="radio"]:checked').val();
-                    nextid = nextCell(id,dir);
-                    $("#"+nextid).focus();
-                  }
+    var cont = $(this).val();
+    if (cont !== "")
+      {
+        var id = $(this).attr("id");
+        var dir = $('input[type="radio"]:checked').val();
+        nextid = nextCell(id,dir);
+        $("#"+nextid).focus();
+      }
   });
+
   $('input[type="radio"]').click(function(e){
     $("#"+nextid).focus();
-   });
+  });
+
   $("input").click(function(e){
     nextid = $(this).attr("id");
   });
@@ -44,19 +46,23 @@ $(function(){
     var resphor = [];
     var respver = [];
     $("#box input").each(function(index){
-                        var col = index%maxcol;
-                        respver[col] = respver[col] === undefined ? "" : respver[col];
-                        respver[col] += $(this).val();
-                        var row = (index-col)/maxcol;
-                        resphor[row] = resphor[row] === undefined ? "" : resphor[row];
-                        resphor[row] += $(this).val();
+      var col = index%maxcol;
+      respver[col] = respver[col] === undefined ? "" : respver[col];
+      respver[col] += $(this).val();
+      var row = (index-col)/maxcol;
+      resphor[row] = resphor[row] === undefined ? "" : resphor[row];
+      resphor[row] += $(this).val();
     });
+
     var correct = solution(solhor,resphor) && solution(solver,respver);
+
     if (correct)
       $('#box input:not([disabled="disabled"])').css("background-color","#6f6");
     else
-      $('#box input:not([disabled="disabled"])').css("background-color","#f66");
-    return false;
+      {
+        $('#box input:not([disabled="disabled"])').css("background-color","#f66").attr("disabled", true);
+      }
+      return false;
   });
 
   function solution(sol,resp){
